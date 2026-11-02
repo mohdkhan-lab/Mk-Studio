@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
+const isStatic = process.env.GITHUB_ACTIONS || process.env.STATIC_EXPORT || false;
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || (process.env.GITHUB_ACTIONS ? "/Mk-Studio" : "");
 
 const nextConfig = {
-  output: "export",
+  ...(isStatic ? { output: "export" } : {}),
   reactStrictMode: true,
   images: {
     unoptimized: true,
@@ -11,4 +12,3 @@ const nextConfig = {
 };
 
 export default nextConfig;
-

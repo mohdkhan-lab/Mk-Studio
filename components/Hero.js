@@ -2,7 +2,7 @@
 import { STUDIO_CONFIG } from "../lib/appsData";
 import { buildWhatsAppChatUrl } from "../lib/supportConfig";
 
-export default function Hero() {
+export default function Hero({ onOpenAuth }) {
   const waUrl = buildWhatsAppChatUrl({
     topic: "Studio Hub Software Inquiry",
     details: "Hello Mohd Khan, I explored your tools hub and want to inquire about software or custom automation.",
@@ -35,9 +35,14 @@ export default function Hero() {
           >
             <span>🚀 Open AutoEditor Online (Free) ↗</span>
           </a>
-          <a href="#apps" className="btn btn--secondary">
-            <span>📱 Explore Free &amp; PRO Tools</span>
-          </a>
+          <button
+            type="button"
+            onClick={onOpenAuth}
+            className="btn btn--secondary"
+            title="Create a free creator account"
+          >
+            <span>👤 Create Free Account</span>
+          </button>
           <a
             href={waUrl}
             target="_blank"

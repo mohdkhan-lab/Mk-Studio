@@ -1,16 +1,45 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import StatsBanner from "../components/StatsBanner";
 import AppCard from "../components/AppCard";
+import FaqSection from "../components/FaqSection";
 import UpdatesTimeline from "../components/UpdatesTimeline";
 import SupportSection from "../components/SupportSection";
 import Footer from "../components/Footer";
+import AuthModal from "../components/AuthModal";
+import DownloadModal from "../components/DownloadModal";
 import { APPS_DATA, STUDIO_CONFIG } from "../lib/appsData";
 import { buildWhatsAppChatUrl } from "../lib/supportConfig";
 
 export default function HomePage() {
   const [activeCategory, setActiveCategory] = useState("all");
+  const [user, setUser] = useState(null);
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
+  const [downloadApp, setDownloadApp] = useState(null);
+  const [isDownloadOpen, setIsDownloadOpen] = useState(false);
+
+  useEffect(() => {
+    try {
+      const savedUser = localStorage.getItem("mk_creator_user");
+      if (savedUser) {
+        setUser(JSON.parse(savedUser));
+      }
+    } catch (_) {}
+  }, []);
+
+  const handleLogout = () => {
+    try {
+      localStorage.removeItem("mk_creator_user");
+    } catch (_) {}
+    setUser(null);
+  };
+
+  const handleOpenDownload = (app) => {
+    setDownloadApp(app);
+    setIsDownloadOpen(true);
+  };
 
   const categories = [
     { id: "all", label: "🌟 All Software" },
@@ -34,10 +63,16 @@ export default function HomePage() {
 
   return (
     <>
-      <Navbar />
+      <Navbar
+        user={user}
+        onOpenAuth={() => setIsAuthOpen(true)}
+        onLogout={handleLogout}
+      />
 
       <main>
-        <Hero />
+        <Hero onOpenAuth={() => setIsAuthOpen(true)} />
+
+        <StatsBanner />
 
         {/* APPS CATALOG SECTION */}
         <section className="section" id="apps">
@@ -67,11 +102,18 @@ export default function HomePage() {
             {/* Grid */}
             <div className="apps-grid">
               {filteredApps.map((app) => (
-                <AppCard key={app.id} app={app} />
+                <AppCard
+                  key={app.id}
+                  app={app}
+                  onSelectDownload={handleOpenDownload}
+                />
               ))}
             </div>
           </div>
         </section>
+
+        {/* FAQ SECTION */}
+        <FaqSection />
 
         {/* UPDATES & SUPPORT SECTION */}
         <section className="section section--dark" id="updates">
@@ -111,6 +153,25 @@ export default function HomePage() {
         <span className="floating-wa__dot"></span>
         <span>💬 WhatsApp Support</span>
       </a>
+
+      {/* Auth / Sign Up Modal */}
+      <AuthModal
+        isOpen={isAuthOpen}
+        onClose={() => setIsAuthOpen(false)}
+        onUserRegistered={(newUser) => setUser(newUser)}
+      />
+
+      {/* Direct Download Modal */}
+      <DownloadModal
+        app={downloadApp}
+        isOpen={isDownloadOpen}
+        onClose={() => setIsDownloadOpen(false)}
+        user={user}
+        onRequireAuth={() => {
+          setIsDownloadOpen(false);
+          setIsAuthOpen(true);
+        }}
+      />
     </>
   );
 }

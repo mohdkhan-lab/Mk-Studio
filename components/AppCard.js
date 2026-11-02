@@ -2,7 +2,7 @@
 import { buildWhatsAppChatUrl } from "../lib/supportConfig";
 import { STUDIO_CONFIG } from "../lib/appsData";
 
-export default function AppCard({ app }) {
+export default function AppCard({ app, onSelectDownload }) {
   const waHelpUrl = buildWhatsAppChatUrl({
     appName: app.name,
     topic: "App Support & Feedback",
@@ -49,7 +49,7 @@ export default function AppCard({ app }) {
         ))}
       </ul>
 
-      {/* PRO Highlights if available */}
+      {/* PRO Highlights */}
       {app.proFeatures && (
         <div className="app-card__pro-box">
           <div className="app-card__pro-title">✨ PRO Benefits Included:</div>
@@ -82,31 +82,28 @@ export default function AppCard({ app }) {
             <span>🚀 Launch Web Tool (Free) ↗</span>
           </a>
         ) : (
-          <a
-            href={waBuyUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={() => onSelectDownload(app)}
             className="btn btn--pro"
             style={{ width: "100%", justifyContent: "center" }}
             title={`Get ${app.name} installer and license key`}
           >
-            <span>💎 Get PRO License &amp; Direct Download</span>
-          </a>
+            <span>💎 Get PRO License &amp; Download</span>
+          </button>
         )}
 
         <div className="app-card__actions-row">
-          {app.liveUrl && (
-            <a
-              href={waBuyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn--secondary"
-              style={{ flex: 1, fontSize: 12, padding: "8px 10px" }}
-              title="Get PRO offline desktop edition without watermark"
-            >
-              <span>💎 Get PRO Offline</span>
-            </a>
-          )}
+          <button
+            type="button"
+            onClick={() => onSelectDownload(app)}
+            className="btn btn--secondary"
+            style={{ flex: 1, fontSize: 12, padding: "8px 10px" }}
+            title="Download offline package"
+          >
+            <span>📥 Direct Download</span>
+          </button>
+
           <a
             href={waHelpUrl}
             target="_blank"
@@ -115,7 +112,7 @@ export default function AppCard({ app }) {
             style={{ flex: 1, fontSize: 12, padding: "8px 10px" }}
             title={`Chat with developer on WhatsApp for ${app.name}`}
           >
-            <span>💬 WhatsApp Support</span>
+            <span>💬 WhatsApp</span>
           </a>
         </div>
       </div>
