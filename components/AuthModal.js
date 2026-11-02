@@ -151,3 +151,4 @@ export default function AuthModal({ isOpen, onClose, onUserRegistered }) {
     </div>
   );
 }
+

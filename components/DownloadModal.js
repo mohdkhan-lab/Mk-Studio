@@ -117,3 +117,4 @@ export default function DownloadModal({ app, isOpen, onClose, user, onRequireAut
     </div>
   );
 }
+

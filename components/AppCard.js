@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { buildWhatsAppChatUrl } from "../lib/supportConfig";
 import { STUDIO_CONFIG } from "../lib/appsData";
 
@@ -93,12 +94,21 @@ export default function AppCard({ app, onSelectDownload }) {
           </button>
         )}
 
-        <div className="app-card__actions-row">
+        <div className="app-card__actions-row" style={{ flexWrap: "wrap", gap: 8 }}>
+          <Link
+            href={`/apps/${app.id}`}
+            className="btn btn--secondary"
+            style={{ flex: "1 1 calc(50% - 4px)", fontSize: 12, padding: "8px 10px", justifyContent: "center" }}
+            title={`View features & interactive tutorial for ${app.name}`}
+          >
+            <span>🔍 Tutorial &amp; Details ↗</span>
+          </Link>
+
           <button
             type="button"
             onClick={() => onSelectDownload(app)}
             className="btn btn--secondary"
-            style={{ flex: 1, fontSize: 12, padding: "8px 10px" }}
+            style={{ flex: "1 1 calc(50% - 4px)", fontSize: 12, padding: "8px 10px", justifyContent: "center" }}
             title="Download offline package"
           >
             <span>📥 Direct Download</span>
@@ -109,10 +119,10 @@ export default function AppCard({ app, onSelectDownload }) {
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn--wa"
-            style={{ flex: 1, fontSize: 12, padding: "8px 10px" }}
+            style={{ width: "100%", fontSize: 12, padding: "8px 10px", justifyContent: "center" }}
             title={`Chat with developer on WhatsApp for ${app.name}`}
           >
-            <span>💬 WhatsApp</span>
+            <span>💬 Chat on WhatsApp with Developer</span>
           </a>
         </div>
       </div>
