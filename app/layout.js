@@ -1,5 +1,6 @@
 import "./globals.css";
 import { STUDIO_CONFIG } from "../lib/appsData";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
   title: `${STUDIO_CONFIG.portalTitle} — High-Performance Creator Tools & Software`,
@@ -17,7 +18,10 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
