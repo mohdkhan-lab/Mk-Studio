@@ -4,7 +4,7 @@ import { buildWhatsAppChatUrl } from "../lib/supportConfig";
 
 export default function Navbar() {
   const waUrl = buildWhatsAppChatUrl({
-    topic: "General Inquiry",
+    topic: "General Inquiry / Software Order",
     details: "I am visiting MK Studio Hub and want to connect with Mohd Khan.",
   });
 
@@ -20,7 +20,7 @@ export default function Navbar() {
           </a>
 
           <nav className="navbar__links">
-            <a href="#apps" className="navbar__link">All Apps</a>
+            <a href="#apps" className="navbar__link">All Software</a>
             <a
               href="https://mk-autoeditor-v2.vercel.app/"
               target="_blank"
@@ -31,7 +31,7 @@ export default function Navbar() {
               🎬 AutoEditor Online ↗
             </a>
             <a href="#updates" className="navbar__link">Changelog &amp; Updates</a>
-            <a href="#support" className="navbar__link">Help &amp; Problem Center</a>
+            <a href="#support" className="navbar__link">Support &amp; Custom Tools</a>
           </nav>
 
           <div className="navbar__actions">
@@ -42,7 +42,7 @@ export default function Navbar() {
               className="btn btn--primary btn--sm"
               title="Launch MK AutoEditor on Vercel"
             >
-              <span>🚀 Launch AutoEditor</span>
+              <span>🚀 Launch Studio</span>
             </a>
             <a
               href={waUrl}
@@ -59,4 +59,3 @@ export default function Navbar() {
     </header>
   );
 }
-

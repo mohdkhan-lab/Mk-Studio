@@ -624,3 +624,90 @@ body {
   }
 }
 
+/* PRICING & PRO BADGES */
+.badge--free {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  font-weight: 800;
+}
+.badge--pro {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--gold);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  font-weight: 800;
+}
+.app-card--pro {
+  border-color: rgba(245, 158, 11, 0.28);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4), 0 0 15px rgba(245, 158, 11, 0.06);
+}
+.app-card--pro:hover {
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 25px rgba(245, 158, 11, 0.12);
+}
+.app-card__price-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 14px 0 16px;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+}
+.app-card__price-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.app-card__price-value {
+  font-size: 13.5px;
+  font-weight: 800;
+}
+.text-free {
+  color: var(--emerald);
+}
+.text-pro {
+  color: var(--gold);
+}
+.app-card__pro-box {
+  margin: 12px 0 16px;
+  padding: 10px 12px;
+  background: rgba(245, 158, 11, 0.06);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 8px;
+}
+.app-card__pro-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--gold);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.app-card__pro-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.app-card__pro-list li {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.btn--pro {
+  background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+  color: #000;
+  font-weight: 800;
+  box-shadow: 0 2px 12px rgba(245, 158, 11, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.btn--pro:hover {
+  background: linear-gradient(135deg, #fcd34d 0%, #b45309 100%);
+  box-shadow: 0 4px 18px rgba(245, 158, 11, 0.5);
+  transform: translateY(-1px);
+}
+
+

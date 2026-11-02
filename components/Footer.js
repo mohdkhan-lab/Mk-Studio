@@ -12,8 +12,8 @@ export default function Footer() {
             MK AutoEditor Online
           </a>
           {" • "}
-          <a href={STUDIO_CONFIG.githubOrg} target="_blank" rel="noopener noreferrer">
-            GitHub
+          <a href="#apps">
+            Creator Tools &amp; Software
           </a>
           {" • "}
           <a href={`https://t.me/${STUDIO_CONFIG.telegramUsername}`} target="_blank" rel="noopener noreferrer">
@@ -29,8 +29,10 @@ export default function Footer() {
             WhatsApp Support ({STUDIO_CONFIG.whatsappDisplayNumber})
           </a>
         </p>
+        <p style={{ marginTop: 12, fontSize: 11.5, color: "var(--text-dim)" }}>
+          © {STUDIO_CONFIG.activeYear} {STUDIO_CONFIG.brandName}. All Rights Reserved. High-Performance YouTube &amp; Video Automation Tools.
+        </p>
       </div>
     </footer>
   );
 }
-

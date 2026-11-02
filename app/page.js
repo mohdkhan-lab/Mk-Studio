@@ -13,23 +13,23 @@ export default function HomePage() {
   const [activeCategory, setActiveCategory] = useState("all");
 
   const categories = [
-    { id: "all", label: "🌟 All Applications" },
-    { id: "video", label: "🎬 Video & Creative" },
-    { id: "downloaders", label: "📥 Media Downloaders" },
-    { id: "automation", label: "⚡ Workflow Automation" },
+    { id: "all", label: "🌟 All Software" },
+    { id: "free", label: "🆓 Free Forever Tools" },
+    { id: "pro", label: "💎 PRO & Automation" },
+    { id: "video", label: "🎬 Video Creation" },
   ];
 
   const filteredApps = APPS_DATA.filter((app) => {
     if (activeCategory === "all") return true;
+    if (activeCategory === "free") return app.isFree;
+    if (activeCategory === "pro") return !app.isFree;
     if (activeCategory === "video") return app.category.toLowerCase().includes("video");
-    if (activeCategory === "downloaders") return app.category.toLowerCase().includes("download");
-    if (activeCategory === "automation") return app.category.toLowerCase().includes("automation");
     return true;
   });
 
   const waFloatUrl = buildWhatsAppChatUrl({
-    topic: "Portal Quick Contact",
-    details: "Hello Mohd Khan, I want to talk about your apps or request support.",
+    topic: "Direct Creator Inquiry",
+    details: "Hello Mohd Khan, I want to talk about your tools or order custom automation software.",
   });
 
   return (
@@ -43,10 +43,10 @@ export default function HomePage() {
         <section className="section" id="apps">
           <div className="container">
             <div className="section__head">
-              <span className="section__badge">Product Catalog</span>
-              <h2 className="section__title">Software &amp; Tools Ecosystem</h2>
+              <span className="section__badge">Software &amp; Tools Catalog</span>
+              <h2 className="section__title">Creator Tools &amp; Automation Ecosystem</h2>
               <p className="section__subtitle">
-                Access your applications online or download them for native offline performance on Windows PC and Android.
+                Engineered for YouTube creators, video editors, and automation specialists. Use our web studio free online, or get native Windows PRO suites.
               </p>
             </div>
 
@@ -64,7 +64,7 @@ export default function HomePage() {
               ))}
             </div>
 
-            {/* Apps Cards Grid */}
+            {/* Grid */}
             <div className="apps-grid">
               {filteredApps.map((app) => (
                 <AppCard key={app.id} app={app} />
@@ -73,12 +73,26 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* UPDATES & SUPPORT DUAL SECTION */}
-        <section className="section" style={{ paddingTop: 0 }}>
+        {/* UPDATES & SUPPORT SECTION */}
+        <section className="section section--dark" id="updates">
           <div className="container">
-            <div className="updates-wrap">
-              <UpdatesTimeline />
-              <SupportSection />
+            <div className="two-col-grid">
+              <div>
+                <div className="section__head" style={{ textAlign: "left", marginBottom: 24 }}>
+                  <span className="section__badge">Release Notes</span>
+                  <h2 className="section__title" style={{ fontSize: 24 }}>
+                    Recent Updates &amp; Changelog
+                  </h2>
+                  <p className="section__subtitle" style={{ margin: "6px 0 0" }}>
+                    Continuous development across all creator tools and automated video pipelines.
+                  </p>
+                </div>
+                <UpdatesTimeline />
+              </div>
+
+              <div>
+                <SupportSection />
+              </div>
             </div>
           </div>
         </section>
@@ -86,13 +100,13 @@ export default function HomePage() {
 
       <Footer />
 
-      {/* FLOATING WHATSAPP BUTTON */}
+      {/* Floating WhatsApp Contact Button */}
       <a
         href={waFloatUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="floating-wa"
-        title={`Chat with Mohd Khan on WhatsApp (${STUDIO_CONFIG.whatsappDisplayNumber})`}
+        title={`Chat with ${STUDIO_CONFIG.ownerName} on WhatsApp (${STUDIO_CONFIG.whatsappDisplayNumber})`}
       >
         <span className="floating-wa__dot"></span>
         <span>💬 WhatsApp Support</span>
@@ -100,4 +114,3 @@ export default function HomePage() {
     </>
   );
 }
-

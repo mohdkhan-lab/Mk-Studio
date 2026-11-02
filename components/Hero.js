@@ -4,8 +4,8 @@ import { buildWhatsAppChatUrl } from "../lib/supportConfig";
 
 export default function Hero() {
   const waUrl = buildWhatsAppChatUrl({
-    topic: "Studio Hub Inquiry",
-    details: "Hello Mohd Khan, I explored your apps hub and would like to connect.",
+    topic: "Studio Hub Software Inquiry",
+    details: "Hello Mohd Khan, I explored your tools hub and want to inquire about software or custom automation.",
   });
 
   return (
@@ -13,16 +13,16 @@ export default function Hero() {
       <div className="container">
         <div className="hero__chip">
           <span className="hero__pulse-dot"></span>
-          <span>Mohd Khan Developer Ecosystem • Apps &amp; Support Hub</span>
+          <span>Mohd Khan Creator Studio • YouTube Video Automation &amp; Software Hub</span>
         </div>
 
         <h1 className="hero__title">
           Built for Velocity, Precision &amp; <br />
-          <span className="hero__title-gradient">Creative Freedom.</span>
+          <span className="hero__title-gradient">YouTube Content Automation.</span>
         </h1>
 
         <p className="hero__subtitle">
-          Welcome to the official <strong>{STUDIO_CONFIG.brandName}</strong> portfolio. Discover high-performance in-browser video editors, high-speed bulk media downloaders, and desktop automation suites. All tools, downloads, release notes, and developer support are accessible right here.
+          Welcome to the official <strong>{STUDIO_CONFIG.brandName}</strong> software portal. Discover high-performance in-browser video editors with audio voiceover sync, 4K bulk media downloaders, and desktop profile automation. Available in <strong>Free Forever</strong> tiers and <strong>PRO Lifetime Licenses</strong>.
         </p>
 
         <div className="hero__actions">
@@ -31,19 +31,19 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn--primary"
-            title="Open MK AutoEditor deployed on Vercel"
+            title="Launch MK AutoEditor deployed on Vercel"
           >
             <span>🚀 Open AutoEditor Online (Free) ↗</span>
           </a>
           <a href="#apps" className="btn btn--secondary">
-            <span>📱 Explore All Apps &amp; Downloads</span>
+            <span>📱 Explore Free &amp; PRO Tools</span>
           </a>
           <a
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn--wa"
-            title="Chat with Mohd Khan on WhatsApp"
+            title="Chat directly with Mohd Khan on WhatsApp"
           >
             <span>💬 WhatsApp Developer ({STUDIO_CONFIG.whatsappDisplayNumber})</span>
           </a>
@@ -51,8 +51,8 @@ export default function Hero() {
 
         <div className="hero__stats">
           <div className="stat-item">
-            <div className="stat-item__num">3+</div>
-            <div className="stat-item__label">Production Apps</div>
+            <div className="stat-item__num">Free + PRO</div>
+            <div className="stat-item__label">Flexible Software Tiers</div>
           </div>
           <div className="stat-item">
             <div className="stat-item__num">5x Turbo</div>
@@ -71,4 +71,3 @@ export default function Hero() {
     </section>
   );
 }
-
