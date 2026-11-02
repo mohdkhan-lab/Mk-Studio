@@ -13,7 +13,7 @@ export default function Navbar() {
       <div className="container">
         <div className="navbar__inner">
           <a href="#" className="navbar__brand">
-            <img src="/logo.svg" alt="MK Studio" className="navbar__logo" />
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo.svg`} alt="MK Studio" className="navbar__logo" />
             <span className="navbar__title">
               <span>MK</span> Studio
             </span>

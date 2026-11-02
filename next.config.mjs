@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
-const isGithubActions = process.env.GITHUB_ACTIONS || false;
-const basePath = isGithubActions ? "/Mk-Studio" : "";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || (process.env.GITHUB_ACTIONS ? "/Mk-Studio" : "");
 
 const nextConfig = {
   output: "export",
