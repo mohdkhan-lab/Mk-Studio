@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import StatsBanner from "../components/StatsBanner";
+import ShowcaseSection from "../components/ShowcaseSection";
 import AppCard from "../components/AppCard";
 import FaqSection from "../components/FaqSection";
 import UpdatesTimeline from "../components/UpdatesTimeline";
@@ -73,6 +74,8 @@ export default function HomePage() {
         <Hero onOpenAuth={() => setIsAuthOpen(true)} />
 
         <StatsBanner />
+
+        <ShowcaseSection />
 
         {/* APPS CATALOG SECTION */}
         <section className="section" id="apps">

@@ -204,3 +204,4 @@ export default function PaymentModal({ app, isOpen, onClose, user }) {
     </div>
   );
 }
+
